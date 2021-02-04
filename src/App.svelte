@@ -8,10 +8,17 @@
 
 	import Inner from "./Inner.svelte";
 	import InnerCpt from "./Inner.svelte";
+	import BtnEmitter from "./BtnEmitter.svelte"
 
 	function handleMouseMoved(event) {
 		console.log('Received mouse move evt')
 	}
+
+	// Handler for the child BtnEmitter component's events.
+	function handleBtnEmitterEvt(event) {
+		console.log("Click count: ", event.detail.count)
+	}
+	
 </script>
 
 <main>
@@ -25,6 +32,9 @@
 
 		<!-- How to compose with another component, using spread for props -->
 		<InnerCpt {...innerProps} />
+
+		<!-- Include a button component that emits events-->
+		<BtnEmitter on:custombuttonclicked={handleBtnEmitterEvt}></BtnEmitter>
 	</div>
 </main>
 
