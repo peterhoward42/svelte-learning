@@ -9,6 +9,7 @@
 	import Inner from "./Inner.svelte";
 	import InnerCpt from "./Inner.svelte";
 	import BtnEmitter from "./BtnEmitter.svelte"
+	import TimedInput from "./TimedInput.svelte"
 
 	function handleMouseMoved(event) {
 		console.log('Received mouse move evt')
@@ -35,6 +36,9 @@
 
 		<!-- Include a button component that emits events-->
 		<BtnEmitter on:custombuttonclicked={handleBtnEmitterEvt}></BtnEmitter>
+
+		<!-- Include a cpt that shows 2-way data binding -->
+		<TimedInput></TimedInput>
 	</div>
 </main>
 
