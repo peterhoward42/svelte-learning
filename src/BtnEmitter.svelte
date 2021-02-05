@@ -1,19 +1,21 @@
 <script>
     import { createEventDispatcher } from "svelte";
+    import { clickCount } from "./store.js"
+
     const dispatch = createEventDispatcher();
 
     let clicks = 0;
 
     function handleClicked() {
         clicks++
-        // The first argument to dispatched defines the string that
-        // a subscriber uses as per : on:custombuttonclicked.
-
+        // Emit an event.
         // The event payload object is available to the subscriber from
         // evt.detail.
         dispatch("custombuttonclicked", {
             count: clicks,
         });
+        // Update the store similarly.
+        clickCount.set(clicks)
     }
 </script>
 

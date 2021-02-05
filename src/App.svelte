@@ -1,21 +1,28 @@
 <script>
+
+	// Import custom cpts we are going to use.
+	import Inner from "./Inner.svelte";
+	import InnerCpt from "./Inner.svelte";
+	import BtnEmitter from "./BtnEmitter.svelte"
+	import TimedInput from "./TimedInput.svelte"
+	import ConsumesStore from "./ConsumesStore.svelte"
+
+	// Expose some plain objects.
 	export let name;
 
+	// Assemble some props we are going to use into an object.
 	const innerProps = {
 		sex: "male",
 		age: 99,
 	};
 
-	import Inner from "./Inner.svelte";
-	import InnerCpt from "./Inner.svelte";
-	import BtnEmitter from "./BtnEmitter.svelte"
-	import TimedInput from "./TimedInput.svelte"
 
+	// Define handler for mouse moved.
 	function handleMouseMoved(event) {
 		console.log('Received mouse move evt')
 	}
 
-	// Handler for the child BtnEmitter component's events.
+	// Define handler for the child BtnEmitter component's events.
 	function handleBtnEmitterEvt(event) {
 		console.log("Click count: ", event.detail.count)
 	}
@@ -39,6 +46,10 @@
 
 		<!-- Include a cpt that shows 2-way data binding -->
 		<TimedInput></TimedInput>
+
+		<!-- Include a cpt that consumes a store value -->
+		<ConsumesStore></ConsumesStore>
+
 	</div>
 </main>
 
