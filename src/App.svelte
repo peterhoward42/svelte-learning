@@ -26,6 +26,9 @@
 	function handleBtnEmitterEvt(event) {
 		console.log("Click count: ", event.detail.count)
 	}
+
+	// Demonstrate that the javascript global "document" is accessible here.
+	console.log("JS global document is: ", document)
 	
 </script>
 
