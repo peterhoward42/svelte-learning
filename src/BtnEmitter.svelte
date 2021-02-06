@@ -1,13 +1,17 @@
 <script>
+    // Third party imports.
+    import { Button, Col, Row } from "sveltestrap";
+
+    // Local imports.
     import { createEventDispatcher } from "svelte";
-    import { clickCount } from "./store.js"
+    import { clickCount } from "./store.js";
 
     const dispatch = createEventDispatcher();
 
     let clicks = 0;
 
     function handleClicked() {
-        clicks++
+        clicks++;
         // Emit an event.
         // The event payload object is available to the subscriber from
         // evt.detail.
@@ -15,12 +19,21 @@
             count: clicks,
         });
         // Update the store similarly.
-        clickCount.set(clicks)
+        clickCount.set(clicks);
     }
 </script>
 
 <!-- A Component with a button in, that emits events when
 the button gets pressed. -->
-<div>
-    <button type="button" on:click={handleClicked}>Click Me!</button>
-</div>
+
+<!-- Use some sveltestrap layout, components, and styling -->
+<Row>
+    <Col>
+        <Button color="primary" outline on:click={handleClicked}
+            >Click Me!</Button
+        >
+    </Col>
+    <Col>
+        <Button color="primary" outline>Hello World!</Button>
+    </Col>
+</Row>
