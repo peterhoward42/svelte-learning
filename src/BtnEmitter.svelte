@@ -28,12 +28,14 @@ the button gets pressed. -->
 
 <!-- Use some sveltestrap layout, components, and styling -->
 <Row>
-    <Col>
+    <Col class="col-2">
         <Button color="primary" outline on:click={handleClicked}
             >Click Me!</Button
         >
     </Col>
-    <Col>
-        <Button color="primary" outline>Hello World!</Button>
+    <Col class="col-2">
+        <Button color="warning" outline>Hello World!</Button>
+    </Col>
+    <Col class="col-8">
     </Col>
 </Row>
